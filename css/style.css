@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: "Merriweather Sans", sans-serif;
+    color: #4c6986
+}
+
+.title{
+    max-width: 500px;
+}
+
+.container{
+    max-width: 1440px;
+    height: 800px;
+    display: flex;
+    /* Align content vertically */
+    align-items: center;
+    /* Align content horizontally */
+    justify-content: space-between;
+    /* Center's the whole wrapper */
+    margin: 0 auto;
+    padding: 40px;
+}
+
+h1 {
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.restart {
+    width: 175px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    border: 2px solid #4c6986;
+    /* transition helps with the hover effect */
+    transition: all 0.2s ease;
+    cursor: pointer;
+    font-weight: bold;
+    /* Pushes up to seperate the button from touching the above text */
+    margin-top: 30px;
+}
+
+/* class restart targeting :on hover */
+.restart:hover {
+    /* On hover you should invert the colors if background white -> text will be white, etc. */
+    background-color: #4c6986;
+    color: white;
+}
+
+.game {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    color: #9a9a9a;
+    font-size: 24px;
+}
+
+.header .player-X {
+    flex: 1;
+    border-bottom: 5px solid #eee;
+    padding-bottom: 8px;
+}
+
+/* controls active turn color */
+.player-X.active{
+    color: #42BED7;
+    border-color: #42BED7;
+}
+
+.header .player-O {
+    flex: 1;
+    border-bottom: 5px solid #eee;
+    padding-bottom: 8px;
+}
+
+.player-O.active{
+    color: #FBDB48;
+    border-color: #FBDB48;
+}
+
+.board {
+    /* Css grid is similar to flex but grid */
+    display: grid;
+    /* makes 3 columns */
+    grid-template-columns: repeat(3,1fr);
+    /* makes 3 rows */
+    grid-template-rows: repeat(3,1fr);
+    /* Shrinks the gaps between the cells */
+    grid-gap: 0px;
+    /* stretches it the whole width */
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.board-tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* target certain tiles to make game grid borders */
+/* only targets children that aren't multiples of 3 (Ex:1,2,4,7,8) */
+.board-tile:not(:nth-child(3n)){
+    border-right: 3px solid rgba(137,163,189,0.5);
+} 
+/* targets the last child and the 2 before it */
+.board-tile:not(:nth-last-child(-n+3)){
+    border-bottom: 3px solid rgba(137,163,189,0.5);
+} 
+
+.board-tile:hover {
+    background: rgb(167, 152, 152);
+}
+
+.tile-x{
+    color: #42BED7;
+}
+
+.tile-o{
+    color: #FBDB48;
+}
+
+.tile-winner span {
+    color: #23CE6B;
+}
+
+@media only screen and (max-width:1200px) {
+    .container{
+        flex-direction: column; 
+    }
+    .left {
+        margin-bottom: 50px;
+    }
+}
