@@ -145,4 +145,21 @@ h1 {
     .left {
         margin-bottom: 50px;
     }
+    
+    
+}
+
+@media only screen and (max-width:375px) {
+    .container{
+        flex-direction: column; 
+    }
+    .left {
+        margin-bottom: 50px;
+    }
+    .game {
+        width: 300px;
+        height: 300px;
+    }
+    
+    
 }
